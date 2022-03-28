@@ -5,7 +5,7 @@ import java.util.List;
 
 @Entity
 @Table(name="tb_prestador")
-public class Prestador {
+public class Prestador extends Usuario{
 
     @Id
     @SequenceGenerator(name="prestador",sequenceName="sq_tb_prestador",allocationSize=1)
@@ -30,9 +30,11 @@ public class Prestador {
     public Prestador() {
     }
 
-    public Prestador(int id, String nome, int telefone, List<Servico> servicos) {
+    public Prestador(int id, String nome, String login, String senha, int telefone, List<Servico> servicos) {
         this.id = id;
         this.nome = nome;
+        this.login = login;
+        this.senha = senha;
         this.telefone = telefone;
         this.servicos = servicos;
     }
