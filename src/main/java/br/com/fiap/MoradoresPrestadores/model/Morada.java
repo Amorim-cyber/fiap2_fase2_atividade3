@@ -1,5 +1,6 @@
 package br.com.fiap.MoradoresPrestadores.model;
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="tb_morada")
