@@ -1,6 +1,7 @@
 package br.com.fiap.MoradoresPrestadores.controller.resource;
 
 import br.com.fiap.MoradoresPrestadores.exceptions.BusinessException;
+import br.com.fiap.MoradoresPrestadores.exceptions.InvalidComandException;
 import br.com.fiap.MoradoresPrestadores.exceptions.NotFoundException;
 import br.com.fiap.MoradoresPrestadores.model.Condominio;
 import br.com.fiap.MoradoresPrestadores.repository.CondominioRepository;
@@ -43,14 +44,18 @@ public class CondominioResource {
         return condominioRepository.save(condominio);
     }
 
-    @PutMapping(value="/{id}",consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Condominio update(@RequestBody Condominio condominio,@PathVariable int id){
+    @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Condominio update(@RequestBody Condominio condominio){
 
-        condominio.setId(id);
+        Optional<Condominio> condominioOptional = Optional.ofNullable(findById(condominio.getId()));
+
+        if(condominioOptional.isEmpty())
+            throw new InvalidComandException(MessageUtils.INVALID_COMMAND);
+
         return condominioRepository.save(condominio);
     }
 
-    @DeleteMapping(value="/{codigo}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @DeleteMapping(value="/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Condominio delete(int id){
         Condominio condominio = findById(id);
 
