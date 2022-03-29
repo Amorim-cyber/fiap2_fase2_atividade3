@@ -8,4 +8,5 @@ public abstract class MessageUtils {
 
     public static final String INVALID_COMMAND = "Invalid Command";
 
+    public static final String MORADA_ALREADY_EXISTS = "Morada already exists in the database";
 }
