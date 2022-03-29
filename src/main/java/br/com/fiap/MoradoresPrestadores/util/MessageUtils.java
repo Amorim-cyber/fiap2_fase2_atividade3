@@ -12,4 +12,5 @@ public abstract class MessageUtils {
 
     public static final String MORADOR_ALREADY_EXISTS = "Morador already exists in the database";
 
+    public static final String PRESTADOR_ALREADY_EXISTS = "Prestador already exists in the database";
 }
