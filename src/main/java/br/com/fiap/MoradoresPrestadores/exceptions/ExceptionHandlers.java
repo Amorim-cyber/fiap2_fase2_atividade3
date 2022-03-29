@@ -1,4 +1,4 @@
-package com.back.publicOffer.exceptions;
+package br.com.fiap.MoradoresPrestadores.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +17,11 @@ public class ExceptionHandlers extends ResponseEntityExceptionHandler {
     @ExceptionHandler(NotFoundException.class)
     protected ResponseEntity<ExceptionResponse> handleSecurity(NotFoundException e){
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ExceptionResponse(e.getMessage()));
+    }
+
+    @ExceptionHandler(InvalidComandException.class)
+    protected ResponseEntity<ExceptionResponse> handleSecurity(InvalidComandException e){
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ExceptionResponse(e.getMessage()));
     }
 
 }
