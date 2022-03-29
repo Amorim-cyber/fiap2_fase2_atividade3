@@ -47,10 +47,7 @@ public class CondominioResource {
     @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public Condominio update(@RequestBody Condominio condominio){
 
-        Optional<Condominio> condominioOptional = Optional.ofNullable(findById(condominio.getId()));
-
-        if(condominioOptional.isEmpty())
-            throw new InvalidComandException(MessageUtils.INVALID_COMMAND);
+        findById(condominio.getId());
 
         return condominioRepository.save(condominio);
     }
