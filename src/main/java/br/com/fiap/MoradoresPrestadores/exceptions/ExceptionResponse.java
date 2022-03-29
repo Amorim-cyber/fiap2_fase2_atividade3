@@ -1,4 +1,4 @@
-package com.back.publicOffer.exceptions;
+package br.com.fiap.MoradoresPrestadores.exceptions;
 
 public class ExceptionResponse {
 
