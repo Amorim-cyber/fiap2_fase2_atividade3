@@ -36,7 +36,7 @@ public class CondominioResource {
     public Condominio save(@RequestBody Condominio condominio){
 
         Optional<Condominio> condominioOptional =
-                condominioRepository.findByIdAndNome(condominio.getId(),condominio.getNome());
+                condominioRepository.findByNumeroAndCep(condominio.getNumero(),condominio.getCep());
 
         if(condominioOptional.isPresent())
             throw new BusinessException(MessageUtils.CONDOMINIO_ALREADY_EXISTS);
@@ -53,7 +53,7 @@ public class CondominioResource {
     }
 
     @DeleteMapping(value="/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Condominio delete(int id){
+    public Condominio delete(@PathVariable int id){
         Condominio condominio = findById(id);
 
         condominioRepository.deleteById(condominio.getId());
