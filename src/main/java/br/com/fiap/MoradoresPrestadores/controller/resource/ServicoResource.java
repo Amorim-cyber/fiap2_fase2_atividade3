@@ -49,7 +49,7 @@ public class ServicoResource {
     }
 
     @DeleteMapping(value="/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Servico delete(int id){
+    public Servico delete(@PathVariable int id){
         Servico servico = findById(id);
 
         servicoRepository.deleteById(servico.getId());
