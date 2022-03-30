@@ -17,6 +17,11 @@ public class Condominio {
     @Column(name="nm_condominio",nullable=false,length=100)
     private String nome;
 
+    @Column(name="cep",nullable=false,length=20)
+    private String cep;
+
+    @Column(name="nr_condominio",nullable=false)
+    private int numero;
 
     @Column(name="endereco",nullable=false,length=200)
     private String endereco;
@@ -27,14 +32,14 @@ public class Condominio {
     public Condominio() {
     }
 
-    public Condominio(int id, String nome, String endereco, List<Morada> moradas) {
+    public Condominio(int id, String nome, String cep, int numero, String endereco, List<Morada> moradas) {
         this.id = id;
         this.nome = nome;
+        this.cep = cep;
+        this.numero = numero;
         this.endereco = endereco;
         this.moradas = moradas;
     }
-
-
 
     public int getId() {
         return id;
@@ -68,6 +73,19 @@ public class Condominio {
         this.moradas = moradas;
     }
 
+    public String getCep() {
+        return cep;
+    }
 
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
 
+    public int getNumero() {
+        return numero;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
 }
