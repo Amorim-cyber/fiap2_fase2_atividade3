@@ -80,7 +80,17 @@ Clique <a href="http://localhost:8084/moradoresPrestadores/swagger-ui" >aqui</a>
 
 * <b>POST</b>
 
-  O comando POST atualiza dados de uma entidade já existente no banco. 
+  O comando POST atualiza dados de uma entidade já existente no banco. O programa irá retornar o elemento com os atributos alterados junto com o código 200 de sucesso. 
+
+  <img src="assets/put1.PNG">
+
+  
+
+  Atenção quando for atualizar, o comando só irá ter êxito se preencher os dados da forma correta além de fornecer um id já existente no banco.  Veja <a href="assets/Put.mp4" >aqui</a> o vídeo de demonstração.
+
+* <B>DELETE</B>
+
+  O comando DELETE exclui uma determinada entidade dando seu id de identificação.
 
 
 
