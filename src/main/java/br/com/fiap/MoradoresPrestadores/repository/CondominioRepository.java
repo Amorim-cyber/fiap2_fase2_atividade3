@@ -9,6 +9,6 @@ import java.util.Optional;
 @Repository
 public interface CondominioRepository extends JpaRepository<Condominio,Integer> {
 
-    Optional<Condominio> findByIdAndNome(int id, String nome);
+    Optional<Condominio> findByNumeroAndCep(int numero,String cep);
 
 }
