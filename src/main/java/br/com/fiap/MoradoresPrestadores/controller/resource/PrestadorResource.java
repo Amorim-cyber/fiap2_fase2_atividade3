@@ -53,7 +53,7 @@ public class PrestadorResource {
     }
 
     @DeleteMapping(value="/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Prestador delete(int id){
+    public Prestador delete(@PathVariable int id){
         Prestador prestador = findById(id);
 
         prestadorRepository.deleteById(prestador.getId());
