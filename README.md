@@ -6,11 +6,14 @@ Prosseguindo com o nosso `track record`, é chegado o momento de adicionarmos se
 
 <img src="assets/tabelas.PNG">
 
- O que muda desse modelo em relação ao anterior é que agora estamos adicionando acessos para a nossa aplicação. Tanto `Morador` quanto `Prestador` vão precisar ter um login e uma senha de acesso caso desejem entrar na aplicação.
+ O que muda desse modelo em relação ao anterior:
 
-Criamos a <b>tb_usuario</b> para armazenar os acessos, <b>tb_usuario</b> e <b>tb_prestador</b> vão herdar os dados armazenados dentro da tabela.
+* Agora estamos adicionando acessos para a nossa aplicação. Tanto `Morador` quanto `Prestador` vão precisar ter um login e uma senha de acesso caso desejem entrar na aplicação.
 
-A relação entre as tabelas será de 1x1. `Morador` e `Prestador`podem ter apenas um `Usuário de acesso`.
+* Criamos a <b>tb_usuario</b> para armazenar os acessos, <b>tb_usuario</b> e <b>tb_prestador</b> vão herdar os dados armazenados dentro da tabela.
+
+* A relação entre as tabelas será de 1x1. `Morador` e `Prestador`podem ter apenas um `Usuário de acesso`.
+* Também adicionamos mais dados para <b>tb_condominio</b> com o intuito de incluir restrições. Não será aceito `Condomínios `com  cep e número repetidos.
 
  <h3>OBJETIVO DO PROJETO:</h3>
 
@@ -102,5 +105,5 @@ Clique <a href="http://localhost:8084/moradoresPrestadores/swagger-ui" >aqui</a>
 
 
 
-
+<h3><a href="https://github.com/Amorim-cyber/fiap2_fase2_atividade3" >CLIQUE AQUI PARA OLHAR O GITHUB DESTE PROJETO</a></h3>
 
