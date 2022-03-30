@@ -6,7 +6,7 @@ Prosseguindo com o nosso `track record`, é chegado o momento de adicionarmos se
 
 <img src="assets/tabelas.PNG">
 
- O que muda desse modelo em relação ao anterior é que agora estamos adicionando acessos para a nossa aplicação. Tanto `Morador` quanto `prestador` vão precisar ter um login e uma senha de acesso caso desejem entrar para utilizar.
+ O que muda desse modelo em relação ao anterior é que agora estamos adicionando acessos para a nossa aplicação. Tanto `Morador` quanto `Prestador` vão precisar ter um login e uma senha de acesso caso desejem entrar na aplicação.
 
 Criamos a <b>tb_usuario</b> para armazenar os acessos, <b>tb_usuario</b> e <b>tb_prestador</b> vão herdar os dados armazenados dentro da tabela.
 
@@ -18,7 +18,7 @@ Este projeto tem como objetivo mostrar as operações CRUD dessas entidade utili
 
 <hr>
 
- <h3>Demonstrando os metodos GET, PUT, POST e DELETE</h3>
+ <h3>Demonstrando os métodos GET, PUT, POST e DELETE</h3>
 
 Optei por mostrar os métodos utilizando a documentação do `swagger` pela sua praticidade. 
 
@@ -78,9 +78,9 @@ Clique <a href="http://localhost:8084/moradoresPrestadores/swagger-ui" >aqui</a>
 
   <i>Obs: No vídeo era para ter dito "postman" ao invés de "postgres" na hora de abrir o swagger</i>
 
-* <b>POST</b>
+* <b>PUT</b>
 
-  O comando POST atualiza dados de uma entidade já existente no banco. O programa irá retornar o elemento com os atributos alterados junto com o código 200 de sucesso. 
+  O comando PUT atualiza dados de uma entidade já existente no banco. O programa irá retornar o elemento com os atributos alterados junto com o código 200 de sucesso. 
 
   <img src="assets/put1.PNG">
 
@@ -90,7 +90,17 @@ Clique <a href="http://localhost:8084/moradoresPrestadores/swagger-ui" >aqui</a>
 
 * <B>DELETE</B>
 
-  O comando DELETE exclui uma determinada entidade dando seu id de identificação.
+  O comando DELETE exclui uma determinada entidade dando seu id de identificação. Ao deletar o programa retorna o corpo do objeto deletado e código 200 de sucesso.
+
+  <img src="assets/delete1.PNG">
+
+  
+
+  Caso queira deletar uma entidade que tenham uma chave estrangeira (Condomínio por exemplo) precisa observar se ela não possui relação com outras entidades (Morada por exemplo), quando isso ocorrer é necessário deletar/mudar as entidades da qual ela tem relação antes de deleta-la. Clique <a href="assets/Delete.mp4" >aqui</a> para ver demonstração.
+
+<hr>
+
+
 
 
 
