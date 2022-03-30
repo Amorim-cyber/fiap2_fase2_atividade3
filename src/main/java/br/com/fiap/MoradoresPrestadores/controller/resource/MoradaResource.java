@@ -51,7 +51,7 @@ public class MoradaResource {
     }
 
     @DeleteMapping(value="/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Morada delete(int id){
+    public Morada delete(@PathVariable int id){
         Morada morada = findById(id);
 
         moradaRepository.deleteById(morada.getId());
