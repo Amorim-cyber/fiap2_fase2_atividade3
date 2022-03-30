@@ -1,7 +1,6 @@
 package br.com.fiap.MoradoresPrestadores.controller.resource;
 
 import br.com.fiap.MoradoresPrestadores.exceptions.BusinessException;
-import br.com.fiap.MoradoresPrestadores.exceptions.InvalidComandException;
 import br.com.fiap.MoradoresPrestadores.exceptions.NotFoundException;
 import br.com.fiap.MoradoresPrestadores.model.Condominio;
 import br.com.fiap.MoradoresPrestadores.repository.CondominioRepository;
