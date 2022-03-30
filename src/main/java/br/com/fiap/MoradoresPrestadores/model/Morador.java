@@ -22,19 +22,15 @@ public class Morador extends Usuario{
             inverseJoinColumns = @JoinColumn(name="id_morada"), name = "tb_registro_morada")
     private List<Morada> moradas;
 
-    @OneToMany(mappedBy = "morador")
-    private List<Registro> registros;
-
     public Morador() {
     }
 
-    public Morador(int id, String nome, String login, String senha, List<Morada> moradas, List<Registro> registros) {
+    public Morador(int id, String nome, String login, String senha, List<Morada> moradas) {
         this.id = id;
         this.nome = nome;
         this.senha = senha;
         this.login = login;
         this.moradas = moradas;
-        this.registros = registros;
     }
 
     public int getId() {
@@ -59,14 +55,6 @@ public class Morador extends Usuario{
 
     public void setMoradas(List<Morada> moradas) {
         this.moradas = moradas;
-    }
-
-    public List<Registro> getRegistros() {
-        return registros;
-    }
-
-    public void setRegistros(List<Registro> registros) {
-        this.registros = registros;
     }
 
 
