@@ -52,7 +52,7 @@ public class RegistroResource {
     }
 
     @DeleteMapping(value="/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Registro delete(int id){
+    public Registro delete(@PathVariable int id){
         Registro registro = findById(id);
 
         registroRepository.deleteById(registro.getId());
