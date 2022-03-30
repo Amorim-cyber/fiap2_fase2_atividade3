@@ -2,7 +2,6 @@ package br.com.fiap.MoradoresPrestadores.controller.resource;
 
 import br.com.fiap.MoradoresPrestadores.exceptions.BusinessException;
 import br.com.fiap.MoradoresPrestadores.exceptions.NotFoundException;
-import br.com.fiap.MoradoresPrestadores.model.Morada;
 import br.com.fiap.MoradoresPrestadores.model.Morador;
 import br.com.fiap.MoradoresPrestadores.repository.MoradorRepository;
 import br.com.fiap.MoradoresPrestadores.util.MessageUtils;
@@ -53,7 +52,7 @@ public class MoradorResource {
     }
 
     @DeleteMapping(value="/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Morador delete(int id){
+    public Morador delete(@PathVariable int id){
         Morador morador = findById(id);
 
         moradorRepository.deleteById(morador.getId());
