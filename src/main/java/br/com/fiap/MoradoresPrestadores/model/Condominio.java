@@ -26,19 +26,15 @@ public class Condominio {
     @Column(name="endereco",nullable=false,length=200)
     private String endereco;
 
-    @OneToMany(mappedBy = "condominio")
-    private List<Morada> moradas;
-
     public Condominio() {
     }
 
-    public Condominio(int id, String nome, String cep, int numero, String endereco, List<Morada> moradas) {
+    public Condominio(int id, String nome, String cep, int numero, String endereco) {
         this.id = id;
         this.nome = nome;
         this.cep = cep;
         this.numero = numero;
         this.endereco = endereco;
-        this.moradas = moradas;
     }
 
     public int getId() {
@@ -63,14 +59,6 @@ public class Condominio {
 
     public void setEndereco(String endereco) {
         this.endereco = endereco;
-    }
-
-    public List<Morada> getMoradas() {
-        return moradas;
-    }
-
-    public void setMoradas(List<Morada> moradas) {
-        this.moradas = moradas;
     }
 
     public String getCep() {
