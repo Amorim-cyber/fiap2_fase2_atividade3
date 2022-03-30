@@ -15,4 +15,7 @@ public abstract class MessageUtils {
     public static final String PRESTADOR_ALREADY_EXISTS = "Prestador already exists in the database";
 
     public static final String REGISTRO_ALREADY_EXISTS = "Registro already exists in the database";
+
+    public static final String SERVICO_ALREADY_EXISTS = "Servico already exists in the database";
+
 }
