@@ -19,9 +19,6 @@ public class Morada {
     @Column(name="tipo_morada")
     private Estrutura estrutura;
 
-    @ManyToMany(mappedBy="moradas")
-    private List<Morador> moradores;
-
     @JoinColumn(name = "id_condominio")
     @ManyToOne(cascade=CascadeType.PERSIST)
     private Condominio condominio;
@@ -29,11 +26,10 @@ public class Morada {
     public Morada() {
     }
 
-    public Morada(int id, int numero, Estrutura estrutura, List<Morador> moradores, Condominio condominio) {
+    public Morada(int id, int numero, Estrutura estrutura, Condominio condominio) {
         this.id = id;
         this.numero = numero;
         this.estrutura = estrutura;
-        this.moradores = moradores;
         this.condominio = condominio;
     }
 
@@ -59,14 +55,6 @@ public class Morada {
 
     public void setEstrutura(Estrutura estrutura) {
         this.estrutura = estrutura;
-    }
-
-    public List<Morador> getMoradores() {
-        return moradores;
-    }
-
-    public void setMoradores(List<Morador> moradores) {
-        this.moradores = moradores;
     }
 
     public Condominio getCondominio() {
