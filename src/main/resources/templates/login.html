@@ -1,38 +1,30 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" style="height: 100%;width: 100%;margin: 0;">
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
     <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
 </head>
-<body>
+<body style="height: 100%;width: 100%;margin: 0;background-color: #F5F5F5;">
 
-<div class="container">
-    <div class="row content-pane">
-        <div class="row">
-            <div class="col-sm-1"></div>
-            <div class="col-sm-8">
-                <br>
-                <h2>Por favor logue para ter acesso</h2>
+<div class="container" style="height: 100%;width: 100%;
+
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;">
+    <div class="card">
+        <div class="card-body">
+            <div class="form-floating mb-3">
+                <label for="login">Login</label>
+                <input type="text" class="form-control" name="login" id="login">
             </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-1"></div>
-            <div class="col-sm-8">
-                <div class="form__group field">
-                    <input type="input" class="form__field" placeholder="Login" name="login" id='login' required />
-                    <label for="login" class="form__label">Login</label>
-                </div>
+            <div class="form-floating">
+                <label for="senha">Senha</label>
+                <input type="password" class="form-control" id="senha">
             </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-1"></div>
-            <div class="col-sm-8">
-                <div class="form__group field">
-                    <input type="input" class="form__field" placeholder="Senha" name="senha" id='senha' required/>
-                    <label for="senha" class="form__label">Senha</label>
-                </div>
-            </div>
+            <a>Clique aqui para criar um novo cadastro</a>
+            <br><br>
+            <button type="button" class="btn btn-info">Entrar</button>
         </div>
     </div>
 </div>
