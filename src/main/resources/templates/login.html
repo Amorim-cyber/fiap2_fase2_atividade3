@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+</head>
+<body>
+
+<div class="container">
+    <div class="row content-pane">
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-8">
+                <br>
+                <h2>Por favor logue para ter acesso</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-8">
+                <div class="form__group field">
+                    <input type="input" class="form__field" placeholder="Login" name="login" id='login' required />
+                    <label for="login" class="form__label">Login</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-8">
+                <div class="form__group field">
+                    <input type="input" class="form__field" placeholder="Senha" name="senha" id='senha' required/>
+                    <label for="senha" class="form__label">Senha</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>
