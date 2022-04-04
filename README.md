@@ -27,7 +27,7 @@ Optei por mostrar os métodos utilizando a documentação do `swagger` pela sua 
 
 Estou utilizando o banco de dados `postgres` para realizar a armazenagem dos dados. As consultas estão sendo realizadas via `visual studios code` com uma extensão que possibilita a conexão com o banco.
 
-Clique <a href="http://localhost:8084/moradoresPrestadores/swagger-ui" >aqui</a> para ter acesso a documentação. (:construction: link ainda local :construction:)   
+Clique <a href="https://fiap2fase2atividade3.herokuapp.com/moradoresPrestadores/swagger-ui.html" >aqui</a> para ter acesso a documentação.
 
 * <B>POST</B>
 
@@ -102,8 +102,26 @@ Clique <a href="http://localhost:8084/moradoresPrestadores/swagger-ui" >aqui</a>
   Caso queira deletar uma entidade que tenham uma chave estrangeira (Condomínio por exemplo) precisa observar se ela não possui relação com outras entidades (Morada por exemplo), quando isso ocorrer é necessário deletar/mudar as entidades da qual ela tem relação antes de deleta-la. Clique <a href="assets/Delete.mp4" >aqui</a> para ver demonstração.
 
 <hr>
+<h3>Considerações finais / instalação</h3>
 
+O projeto deve ter telas e mais funcionalidade em breve.
+
+Foi utilizado as ferramentas do spring boot junto com a IDE  `Intellij`.
+
+O servidor está rodando na porta 8084.
+
+Para rodar o programa localmente em sua maquina siga os seguintes passos:
+
+1. Faça o download do arquivo e descompacte-o. 
+2. Abra o Intellij e abra o arquivo.
+3. Remova as credenciais de acesso ao banco postgres heroku e coloque as credenciais de seu banco local.
+
+Segue <a href="assets/instalacao.mp4" >vídeo</a> de instalação. 
+
+<i>Obs: No vídeo eu falei "eclipse" ao invés de "intelliJ" mas acho que deu para pegar a ideia</i>
 
 
 <h3><a href="https://github.com/Amorim-cyber/fiap2_fase2_atividade3" >CLIQUE AQUI PARA OLHAR O GITHUB DESTE PROJETO</a></h3>
+
+<H3>Forte abraço! :smile:</H3>
 
