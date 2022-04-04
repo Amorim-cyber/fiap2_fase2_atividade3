@@ -17,7 +17,7 @@ Prosseguindo com o nosso `track record`, é chegado o momento de adicionarmos se
 
  <h3>OBJETIVO DO PROJETO:</h3>
 
-Este projeto tem como objetivo mostrar as operações CRUD dessas entidade utilizando REST. O documento terá os seguintes passos: <b>1) Demonstrando os metodos GET, PUT, POST e DELETE; 2) Funcionalidades da aplicação; 3) Considerações finais / Instalação</b>
+Este projeto tem como objetivo mostrar as operações CRUD dessas entidade utilizando REST. O documento terá os seguintes passos: <b>1) Demonstrando os metodos GET, PUT, POST e DELETE; 2) Considerações finais / Instalação</b>
 
 <hr>
 
