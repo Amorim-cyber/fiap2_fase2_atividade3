@@ -9,10 +9,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
-public class MoradoresPrestadoresApplication {
+public class MoradoresPrestadoresApplication_Local {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MoradoresPrestadoresApplication.class, args);
+		SpringApplication.run(MoradoresPrestadoresApplication_Local.class, args);
 	}
 
 	@Bean
