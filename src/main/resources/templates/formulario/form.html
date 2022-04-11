@@ -1,10 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      style="height: 100%;width: 100%;margin: 0;"
+        >
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Formulário de cadastro</title>
+
+    <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
 </head>
-<body>
-$END$
+<body style="height: 100%;width: 100%;margin: 0;background-color: #F5F5F5;">
+<div class="container" style="height: 100%;width: 100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;">
+    <div class="card">
+        <div class="card-body">
+            <div class="form-floating">
+                <label for="nome">Digite seu nome</label>
+                <input type="text" class="form-control" id="nome">
+            </div>
+            <div class="form-floating">
+                <label for="login">Digite seu login</label>
+                <input type="text" class="form-control" id="login">
+            </div>
+            <div class="form-floating">
+                <label for="senha">Digite sua senha</label>
+                <input type="text" class="form-control" id="senha">
+            </div>
+            <div class="form-floating" style="margin-bottom:0px;">
+                <label>Diga que tipo de usuário você é:</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input onclick="releaseAdditionFields()" class="form-check-input" type="radio" name="inlineRadioOptions" id="moradorRadio" value="morador">
+                <label class="form-check-label" for="moradorRadio">Morador</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input onclick="releaseAdditionFields()" class="form-check-input" type="radio" name="inlineRadioOptions" id="prestadorRadio" value="prestador">
+                <label class="form-check-label" for="prestadorRadio">Prestador de serviço</label>
+            </div>
+
+            <hr>
+
+            <div id="formMorador" style="margin-top:5px; display:none;"
+                    th:insert="formulario/formMorador :: formMorador">
+            </div>
+
+            <div id="formPrestador" style="margin-top:5px; display:none;"
+                 th:insert="formulario/formPrestador :: formPrestador">
+            </div>
+
+            <br>
+            <button  id="btnCriar" style="display:none;" type="button" class="btn btn-info">Criar conta</button>
+            <br>
+            <button onclick="voltarLogin()" id="btnVoltar" style="display:none;" type="button" class="btn btn-danger">Voltar ao menu principal</button>
+        </div>
+    </div>
+</div>
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<div  th:insert="formulario/formScript :: formScript"> </div>
 </body>
 </html>
