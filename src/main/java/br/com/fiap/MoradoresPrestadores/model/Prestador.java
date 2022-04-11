@@ -19,8 +19,6 @@ public class Prestador extends Usuario{
     @Column(name="nr_prestador",nullable=false)
     private int telefone;
 
-    @OneToMany(mappedBy = "prestador")
-    private List<Registro> registros;
 
     @ManyToMany(cascade=CascadeType.PERSIST)
     @JoinTable(joinColumns = @JoinColumn(name="id_prestador"),
@@ -63,14 +61,6 @@ public class Prestador extends Usuario{
 
     public void setTelefone(int telefone) {
         this.telefone = telefone;
-    }
-
-    public List<Registro> getRegistros() {
-        return registros;
-    }
-
-    public void setRegistros(List<Registro> registros) {
-        this.registros = registros;
     }
 
 }
