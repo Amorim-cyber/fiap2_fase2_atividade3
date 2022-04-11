@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org ">
+<head>
+    <meta charset="UTF-8">
+    <title>FormularioMorador</title>
+    <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+</head>
+<body>
+
+<div th:fragment="formMorador">
+
+    <div class="form-floating mb-3">
+        <label for="cep">Digite seu CEP</label>
+        <input type="number" class="form-control" name="cep" id="cep">
+    </div>
+
+    <div class="form-floating">
+        <label for="numCondominio">Digite o número do Condomínio</label>
+        <input type="number" class="form-control" id="numCondominio">
+    </div>
+    <div class="form-floating">
+        <label for="endereco">Endereço</label>
+        <input type="number" class="form-control" id="endereco">
+    </div>
+    <div class="form-floating">
+        <label for="numMorada">Numero da sua morada</label>
+        <input type="number" class="form-control" id="numMorada">
+    </div>
+    <br>
+    <div class="form-floating">
+        <div class="form__group field">
+            <select name="tipoMorada" id="tipoMorada" placeholder="Selecione seu tipo de morada" class="form__field">
+                <option value="">Selecione seu tipo de morada</option>
+                <option value="CASA">Casa</option>
+                <option value="APARTAMENTO">Apartamento</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+
+
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>
