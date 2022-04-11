@@ -17,17 +17,13 @@ public class Servico {
     @Column(name="nm_servico")
     private Ocupacao ocupacao;
 
-    @ManyToMany(mappedBy="servicos")
-    private List<Prestador> prestadores;
-
     public Servico() {
     }
 
-    public Servico(int id, Ocupacao ocupacao, List<Prestador> prestadores) {
+    public Servico(int id, Ocupacao ocupacao) {
         super();
         this.id = id;
         this.ocupacao = ocupacao;
-        this.prestadores = prestadores;
     }
 
     public int getId() {
@@ -44,14 +40,6 @@ public class Servico {
 
     public void setOcupacao(Ocupacao ocupacao) {
         this.ocupacao = ocupacao;
-    }
-
-    public List<Prestador> getPrestadores() {
-        return prestadores;
-    }
-
-    public void setPrestadores(List<Prestador> prestadores) {
-        this.prestadores = prestadores;
     }
 
 }
