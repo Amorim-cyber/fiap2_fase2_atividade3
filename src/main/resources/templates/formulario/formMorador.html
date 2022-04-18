@@ -10,33 +10,85 @@
 
 <div th:fragment="formMorador">
 
-    <div class="form-floating mb-3">
-        <label for="cep">Digite seu CEP</label>
-        <input type="number" class="form-control" name="cep" id="cep">
-    </div>
+        <div class="card" style="background-color:#ffffe4">
+            <div class="card-body">
+                <form id="formMorador" th:action="@{/home/morador}" method="post">
 
-    <div class="form-floating">
-        <label for="numCondominio">Digite o número do Condomínio</label>
-        <input type="number" class="form-control" id="numCondominio">
-    </div>
-    <div class="form-floating">
-        <label for="endereco">Endereço</label>
-        <input type="number" class="form-control" id="endereco">
-    </div>
-    <div class="form-floating">
-        <label for="numMorada">Numero da sua morada</label>
-        <input type="number" class="form-control" id="numMorada">
-    </div>
-    <br>
-    <div class="form-floating">
-        <div class="form__group field">
-            <select name="tipoMorada" id="tipoMorada" placeholder="Selecione seu tipo de morada" class="form__field">
-                <option value="">Selecione seu tipo de morada</option>
-                <option value="CASA">Casa</option>
-                <option value="APARTAMENTO">Apartamento</option>
-            </select>
+                    <!--<div class="alert alert-danger" th:if="${#fields.hasErrors('*')}">
+                        <p th:each="err : ${#fields.errors('*')}" th:text="${err}"></p>
+                    </div>-->
+
+                    <div th:object="${morador}">
+                        <input th:field="*{id}" type="hidden">
+
+                        <div class="form-floating">
+                            <label for="nome">Digite seu nome</label>
+                            <input th:field="*{nome}" type="text" class="form-control" id="nome">
+                        </div>
+                        <div class="form-floating">
+                            <label for="login">Digite seu login</label>
+                            <input th:field="*{login}" type="text" class="form-control" id="login">
+                        </div>
+                        <div class="form-floating">
+                            <label for="senha">Digite sua senha</label>
+                            <input th:field="*{senha}" type="password" class="form-control" id="senha">
+                        </div>
+                    </div>
+
+                    <div th:object="${condominio}">
+                        <div class="form-floating mb-3" >
+                            <label for="cep">Digite o CEP do Condomínio</label>
+                            <input th:field="*{cep}" type="text" class="form-control" name="cep" id="cep">
+                        </div>
+                        <div class="form-floating">
+                            <label for="numCondominio">Digite o número do Condomínio</label>
+                            <input th:field="*{numeroCondominio}"
+                                   type="number" class="form-control" id="numCondominio">
+                        </div>
+                        <div class="form-floating">
+                            <label for="nomeCondominio">Digite o nome do Condomínio</label>
+                            <input th:field="*{nomeCondominio}"
+                                   type="text" class="form-control" id="nomeCondominio">
+                        </div>
+                        <div class="form-floating">
+                            <label for="endereco">Digite o endereço do Condomínio</label>
+                            <input th:field="*{endereco}"
+                                   type="text" class="form-control" id="endereco">
+                        </div>
+                    </div>
+
+
+
+                    <div th:object="${morada}">
+                        <div class="form-floating">
+                            <label for="numMorada">Número da sua morada</label>
+                            <input th:field="*{numeroMorada}" type="number" class="form-control" id="numMorada">
+                        </div>
+                        <br>
+                        <div class="form-floating">
+                            <div class="form__group field">
+                                <select th:field="*{estrutura}" name="estrutura" id="estrutura"
+                                        placeholder="Selecione seu tipo de morada" class="form__field">
+                                    <option value="">Selecione seu tipo de morada</option>
+                                    <option value="CASA">Casa</option>
+                                    <option value="APARTAMENTO">Apartamento</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br>
+                    <button  id="btnCriar" type="submit" class="btn btn-info">Criar conta</button>
+                    <br><br>
+                    <button onclick="voltarLogin()" id="btnVoltar" type="button" class="btn btn-danger">
+                        Voltar ao menu principal
+                    </button>
+                </form>
+            </div>
         </div>
-    </div>
+
+    </form>
+
 </div>
 
 
