@@ -1,5 +1,6 @@
 package br.com.fiap.MoradoresPrestadores.model;
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -20,7 +21,7 @@ public class Morador extends Usuario{
     @ManyToMany(cascade=CascadeType.PERSIST)
     @JoinTable(joinColumns = @JoinColumn(name="id_morador"),
             inverseJoinColumns = @JoinColumn(name="id_morada"), name = "tb_registro_morada")
-    private List<Morada> moradas;
+    private List<Morada> moradas = new ArrayList<Morada>();
 
     public Morador() {
     }
@@ -58,4 +59,12 @@ public class Morador extends Usuario{
     }
 
 
+    @Override
+    public String toString() {
+        return "Morador{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", moradas=" + moradas +
+                '}';
+    }
 }
