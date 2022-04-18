@@ -10,6 +10,6 @@ import java.util.Optional;
 @Repository
 public interface MoradaRepository extends JpaRepository<Morada,Integer> {
 
-    Optional<Morada> findByNumeroAndCondominio(int numero, Condominio condominio);
+    Optional<Morada> findByNumeroMoradaAndCondominio(int numeroMorada, Condominio condominio);
 
 }
