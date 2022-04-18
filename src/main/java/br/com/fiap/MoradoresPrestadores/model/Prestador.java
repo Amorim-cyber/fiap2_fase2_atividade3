@@ -63,4 +63,21 @@ public class Prestador extends Usuario{
         this.telefone = telefone;
     }
 
+    public List<Servico> getServicos() {
+        return servicos;
+    }
+
+    public void setServicos(List<Servico> servicos) {
+        this.servicos = servicos;
+    }
+
+    @Override
+    public String toString() {
+        return "Prestador{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", telefone=" + telefone +
+                ", servicos=" + servicos +
+                '}';
+    }
 }
