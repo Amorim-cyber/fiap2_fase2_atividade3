@@ -33,7 +33,7 @@ public class MoradaResource {
     public Morada save(@RequestBody Morada morada) {
 
         Optional<Morada> moradaOptional =
-                moradaRepository.findByNumeroAndCondominio(morada.getNumero(), morada.getCondominio());
+                moradaRepository.findByNumeroMoradaAndCondominio(morada.getNumeroMorada(), morada.getCondominio());
 
         if(moradaOptional.isPresent())
             throw new BusinessException(MessageUtils.MORADA_ALREADY_EXISTS);
