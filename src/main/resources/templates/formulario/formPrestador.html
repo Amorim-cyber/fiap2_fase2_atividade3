@@ -9,21 +9,56 @@
 <body>
 
 <div th:fragment="formPrestador">
-    <div class="form-floating mb-3">
-        <label for="tel">Digite seu número de telefone</label>
-        <input type="number" class="form-control" name="tel" id="tel">
-    </div>
-    <br>
-    <div class="form-floating">
-        <div class="form__group field">
-            <select name="tipoMorada" id="tipoMorada" placeholder="Selecione sua especialização" class="form__field">
-                <option value="">Selecione sua especialização</option>
-                <option value="1">Pintor</option>
-                <option value="2">Eletricista</option>
-                <option value="2">Pedreiro</option>
-            </select>
+
+
+        <div class="card" style="background-color:#ffffe4">
+
+            <div class="card-body">
+
+                <form id="formPrestador" th:action="@{/home/prestador}"  th:object="${prestador}" method="post">
+                    <!--<div class="alert alert-danger" th:if="${#fields.hasErrors('*')}">
+                        <p th:each="err : ${#fields.errors('*')}" th:text="${err}"></p>
+                    </div>-->
+
+                    <input th:field="*{id}" type="hidden">
+
+                    <div class="form-floating">
+                        <label for="nome">Digite seu nome</label>
+                        <input th:field="*{nome}" type="text" class="form-control" id="nome">
+                    </div>
+                    <div class="form-floating">
+                        <label for="login">Digite seu login</label>
+                        <input th:field="*{login}" type="text" class="form-control" id="login">
+                    </div>
+                    <div class="form-floating">
+                        <label for="senha">Digite sua senha</label>
+                        <input th:field="*{senha}" type="password" class="form-control" id="senha">
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <label for="tel">Digite seu número de telefone</label>
+                        <input th:field="*{telefone}" type="number" class="form-control" name="tel" id="tel"/>
+                    </div>
+                    <div class="form-floating">
+                        <div class="form__group field">
+                            <select th:field="*{servicos}" name="ocupacao" id="ocupacao"
+                                    placeholder="Selecione sua especialização" class="form__field">
+                                <option value="">Selecione sua especialização</option>
+                                <option th:each="c:${servicos}" th:value="${c.getId()}" th:text="${c.getOcupacao()}">
+
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <br>
+                    <button  id="btnCriar" type="submit" class="btn btn-info">Criar conta</button>
+                    <br><br>
+                    <button onclick="voltarLogin()" id="btnVoltar" type="button" class="btn btn-danger">Voltar ao menu principal</button>
+                </form>
+
+            </div>
         </div>
-    </div>
+
 </div>
 
 <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
