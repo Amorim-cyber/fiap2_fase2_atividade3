@@ -37,7 +37,6 @@ public class FormController {
                          HttpServletRequest request){
         model.addAttribute("servicos",servicoResource.findAll());
         model.addAttribute("usuario",request.getParameter("tipo"));
-        System.out.println(model.getAttribute("usuario").equals("prestador"));
         return "formulario/form";
     }
 
