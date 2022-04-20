@@ -7,6 +7,9 @@
     <title>Formulário de cadastro</title>
 
     <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+    <script type='text/javascript' src='http://code.jquery.com/jquery-1.11.0.js'></script>
+    <script type='text/javascript'
+            src="https://rawgit.com/RobinHerbots/jquery.inputmask/3.x/dist/jquery.inputmask.bundle.js"></script>
 </head>
 <body style="height: 100%;width: 100%;margin: 0;background-color: #F5F5F5;">
 <div class="container" style="height: 100%;width: 100%;
@@ -73,6 +76,7 @@
 </div>
 <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
 <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-<div  th:insert="formulario/formScript :: formScript"> </div>
+<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+
 </body>
 </html>
