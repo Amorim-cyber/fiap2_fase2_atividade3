@@ -28,6 +28,11 @@ public class MoradorResource {
         return moradorRepository.findById(id).orElseThrow(NotFoundException::new);
     }
 
+    @GetMapping(value="/{login}/{senha}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Morador findByLoginAndSenha(@PathVariable String login, @PathVariable String senha){
+        return moradorRepository.findByLoginAndSenha(login,senha).orElse(null);
+    }
+
     @ResponseStatus(code = HttpStatus.CREATED)
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public Morador save(@RequestBody Morador morador){
