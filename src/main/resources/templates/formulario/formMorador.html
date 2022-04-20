@@ -12,13 +12,11 @@
 
         <div class="card" style="background-color:#ffffe4">
             <div class="card-body">
-                <form id="formMorador" th:action="@{/home/morador}" method="post">
-
-                    <!--<div class="alert alert-danger" th:if="${#fields.hasErrors('*')}">
-                        <p th:each="err : ${#fields.errors('*')}" th:text="${err}"></p>
-                    </div>-->
-
+                <form id="formMorador" th:action="@{/home/novoMorador}" method="post">
                     <div th:object="${morador}">
+                        <div class="alert alert-danger" th:if="${errorsMorador!=null}">
+                            <p th:each="error : ${errorsMorador}" th:text="${error}"></p>
+                        </div>
                         <input th:field="*{id}" type="hidden">
 
                         <div class="form-floating">
@@ -36,9 +34,14 @@
                     </div>
 
                     <div th:object="${condominio}">
+                        <div class="alert alert-danger" th:if="${errorsCondominio!=null}">
+                            <p th:each="error : ${errorsCondominio}" th:text="${error}"></p>
+                        </div>
                         <div class="form-floating mb-3" >
                             <label for="cep">Digite o CEP do Condomínio</label>
-                            <input th:field="*{cep}" type="text" class="form-control" name="cep" id="cep">
+                            <input th:field="*{cep}"
+                                   data-inputmask="'mask': '99999-999'"
+                                   type="text" class="form-control" name="cep" id="cep">
                         </div>
                         <div class="form-floating">
                             <label for="numCondominio">Digite o número do Condomínio</label>
@@ -56,10 +59,10 @@
                                    type="text" class="form-control" id="endereco">
                         </div>
                     </div>
-
-
-
                     <div th:object="${morada}">
+                        <div class="alert alert-danger" th:if="${errorsMorada!=null}">
+                            <p th:each="error : ${errorsMorada}" th:text="${error}"></p>
+                        </div>
                         <div class="form-floating">
                             <label for="numMorada">Número da sua morada</label>
                             <input th:field="*{numeroMorada}" type="number" class="form-control" id="numMorada">
@@ -80,14 +83,18 @@
                     <br>
                     <button  id="btnCriar" type="submit" class="btn btn-info">Criar conta</button>
                     <br><br>
-                    <button onclick="voltarLogin()" id="btnVoltar" type="button" class="btn btn-danger">
-                        Voltar ao menu principal
-                    </button>
+                    <a th:href="@{/login}" id="btnVoltar" class="btn btn-danger">
+                        Voltar para o login
+                    </a>
                 </form>
             </div>
         </div>
 
     </form>
+
+    <script>
+    $(":input").inputmask();
+    </script>
 
 </div>
 
