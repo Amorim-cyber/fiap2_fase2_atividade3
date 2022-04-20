@@ -15,10 +15,10 @@
 
             <div class="card-body">
 
-                <form id="formPrestador" th:action="@{/home/prestador}"  th:object="${prestador}" method="post">
-                    <!--<div class="alert alert-danger" th:if="${#fields.hasErrors('*')}">
-                        <p th:each="err : ${#fields.errors('*')}" th:text="${err}"></p>
-                    </div>-->
+                <form id="formPrestador" th:action="@{/home/novoPrestador}"  th:object="${prestador}" method="post">
+                    <div class="alert alert-danger" th:if="${errors!=null}">
+                        <p th:each="error : ${errors}" th:text="${error}"></p>
+                    </div>
 
                     <input th:field="*{id}" type="hidden">
 
@@ -36,8 +36,10 @@
                     </div>
 
                     <div class="form-floating mb-3">
-                        <label for="tel">Digite seu número de telefone</label>
-                        <input th:field="*{telefone}" type="number" class="form-control" name="tel" id="tel"/>
+                        <label for="tel">Digite seu número do seu celular</label>
+                        <input th:field="*{telefone}"
+                               data-inputmask="'mask': '(99)99999-9999'"
+                               type="text" class="form-control" name="tel" id="tel"/>
                     </div>
                     <div class="form-floating">
                         <div class="form__group field">
@@ -53,13 +55,21 @@
                     <br>
                     <button  id="btnCriar" type="submit" class="btn btn-info">Criar conta</button>
                     <br><br>
-                    <button onclick="voltarLogin()" id="btnVoltar" type="button" class="btn btn-danger">Voltar ao menu principal</button>
+                    <a th:href="@{/login}" id="btnVoltar" class="btn btn-danger">
+                        Voltar para o login
+                    </a>
                 </form>
 
             </div>
         </div>
 
+    <script>
+        $(":input").inputmask();
+    </script>
+
 </div>
+
+
 
 <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
 <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
