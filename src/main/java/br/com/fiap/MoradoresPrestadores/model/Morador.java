@@ -1,5 +1,6 @@
 package br.com.fiap.MoradoresPrestadores.model;
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,8 +16,6 @@ public class Morador extends Usuario{
 
     @Column(name="nm_morador",nullable=false,length=100)
     private String nome;
-
-
 
     @ManyToMany(cascade=CascadeType.PERSIST)
     @JoinTable(joinColumns = @JoinColumn(name="id_morador"),
