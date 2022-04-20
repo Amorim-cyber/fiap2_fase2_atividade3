@@ -1,7 +1,7 @@
 package br.com.fiap.MoradoresPrestadores.model;
 
 import javax.persistence.*;
-import java.util.List;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name="tb_condominio")
@@ -12,7 +12,6 @@ public class Condominio {
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="condominio")
     @Column(name="id_condominio")
     private int id;
-
 
     @Column(name="nm_condominio",nullable=false,length=100)
     private String nomeCondominio;
