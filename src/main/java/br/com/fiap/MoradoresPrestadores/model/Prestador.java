@@ -1,6 +1,7 @@
 package br.com.fiap.MoradoresPrestadores.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.util.List;
 
 @Entity
@@ -13,14 +14,14 @@ public class Prestador extends Usuario{
     @Column(name="id_prestador")
     private int id;
 
+    @NotBlank(message = "Nome do prestador é obrigatório!")
     @Column(name="nm_prestador",nullable=false,length=100)
     private String nome;
 
+    @NotBlank(message = "Celular do prestador é obrigatório!")
     @Column(name="nr_prestador",nullable=false)
-    private int telefone;
+    private String telefone;
 
-    @OneToMany(mappedBy = "prestador")
-    private List<Registro> registros;
 
     @ManyToMany(cascade=CascadeType.PERSIST)
     @JoinTable(joinColumns = @JoinColumn(name="id_prestador"),
@@ -30,7 +31,7 @@ public class Prestador extends Usuario{
     public Prestador() {
     }
 
-    public Prestador(int id, String nome, String login, String senha, int telefone, List<Servico> servicos) {
+    public Prestador(int id, String nome, String login, String senha, String telefone, List<Servico> servicos) {
         this.id = id;
         this.nome = nome;
         this.login = login;
@@ -57,20 +58,29 @@ public class Prestador extends Usuario{
         this.nome = nome;
     }
 
-    public int getTelefone() {
+    public String getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(int telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 
-    public List<Registro> getRegistros() {
-        return registros;
+    public List<Servico> getServicos() {
+        return servicos;
     }
 
-    public void setRegistros(List<Registro> registros) {
-        this.registros = registros;
+    public void setServicos(List<Servico> servicos) {
+        this.servicos = servicos;
     }
 
+    @Override
+    public String toString() {
+        return "Prestador{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", telefone=" + telefone +
+                ", servicos=" + servicos +
+                '}';
+    }
 }

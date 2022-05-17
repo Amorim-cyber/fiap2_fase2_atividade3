@@ -30,12 +30,17 @@ public class CondominioResource {
         return condominioRepository.findById(id).orElseThrow(NotFoundException::new);
     }
 
+    @GetMapping(value="/{nr}/{cep}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Condominio findByNumeroAndCep(@PathVariable int nr,@PathVariable String cep){
+        return condominioRepository.findByNumeroCondominioAndCep(nr,cep).orElse(null);
+    }
+
     @ResponseStatus(code = HttpStatus.CREATED)
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public Condominio save(@RequestBody Condominio condominio){
 
         Optional<Condominio> condominioOptional =
-                condominioRepository.findByNumeroAndCep(condominio.getNumero(),condominio.getCep());
+                condominioRepository.findByNumeroCondominioAndCep(condominio.getNumeroCondominio(),condominio.getCep());
 
         if(condominioOptional.isPresent())
             throw new BusinessException(MessageUtils.CONDOMINIO_ALREADY_EXISTS);

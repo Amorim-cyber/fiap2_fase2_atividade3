@@ -2,6 +2,7 @@ package br.com.fiap.MoradoresPrestadores.controller.resource;
 
 import br.com.fiap.MoradoresPrestadores.exceptions.BusinessException;
 import br.com.fiap.MoradoresPrestadores.exceptions.NotFoundException;
+import br.com.fiap.MoradoresPrestadores.model.Condominio;
 import br.com.fiap.MoradoresPrestadores.model.Morada;
 import br.com.fiap.MoradoresPrestadores.repository.MoradaRepository;
 import br.com.fiap.MoradoresPrestadores.util.MessageUtils;
@@ -28,12 +29,17 @@ public class MoradaResource {
         return moradaRepository.findById(id).orElseThrow(NotFoundException::new);
     }
 
+    @GetMapping(value="/{num}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Morada findByNumeroMoradaAndCondominio(@PathVariable int num,@RequestBody Condominio condominio){
+        return moradaRepository.findByNumeroMoradaAndCondominio(num,condominio).orElse(null);
+    }
+
     @ResponseStatus(code = HttpStatus.CREATED)
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public Morada save(@RequestBody Morada morada) {
 
         Optional<Morada> moradaOptional =
-                moradaRepository.findByNumeroAndCondominio(morada.getNumero(), morada.getCondominio());
+                moradaRepository.findByNumeroMoradaAndCondominio(morada.getNumeroMorada(), morada.getCondominio());
 
         if(moradaOptional.isPresent())
             throw new BusinessException(MessageUtils.MORADA_ALREADY_EXISTS);

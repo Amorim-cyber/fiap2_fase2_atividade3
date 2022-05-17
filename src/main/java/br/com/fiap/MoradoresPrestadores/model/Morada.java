@@ -1,5 +1,6 @@
 package br.com.fiap.MoradoresPrestadores.model;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Entity
@@ -13,7 +14,7 @@ public class Morada {
     private int id;
 
     @Column(name="nr_morada",nullable=false)
-    private int numero;
+    private int numeroMorada;
 
     @Enumerated(EnumType.STRING)
     @Column(name="tipo_morada")
@@ -26,9 +27,9 @@ public class Morada {
     public Morada() {
     }
 
-    public Morada(int id, int numero, Estrutura estrutura, Condominio condominio) {
+    public Morada(int id, int numeroMorada, Estrutura estrutura, Condominio condominio) {
         this.id = id;
-        this.numero = numero;
+        this.numeroMorada = numeroMorada;
         this.estrutura = estrutura;
         this.condominio = condominio;
     }
@@ -41,12 +42,12 @@ public class Morada {
         this.id = id;
     }
 
-    public int getNumero() {
-        return numero;
+    public int getNumeroMorada() {
+        return numeroMorada;
     }
 
-    public void setNumero(int numero) {
-        this.numero = numero;
+    public void setNumeroMorada(int numeroMorada) {
+        this.numeroMorada = numeroMorada;
     }
 
     public Estrutura getEstrutura() {
@@ -65,4 +66,13 @@ public class Morada {
         this.condominio = condominio;
     }
 
+    @Override
+    public String toString() {
+        return "Morada{" +
+                "id=" + id +
+                ", numeroMorada=" + numeroMorada +
+                ", estrutura=" + estrutura +
+                ", condominio=" + condominio +
+                '}';
+    }
 }

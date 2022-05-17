@@ -1,7 +1,7 @@
 package br.com.fiap.MoradoresPrestadores.model;
 
 import javax.persistence.*;
-import java.util.List;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name="tb_condominio")
@@ -13,15 +13,14 @@ public class Condominio {
     @Column(name="id_condominio")
     private int id;
 
-
     @Column(name="nm_condominio",nullable=false,length=100)
-    private String nome;
+    private String nomeCondominio;
 
     @Column(name="cep",nullable=false,length=20)
     private String cep;
 
     @Column(name="nr_condominio",nullable=false)
-    private int numero;
+    private int numeroCondominio;
 
     @Column(name="endereco",nullable=false,length=200)
     private String endereco;
@@ -29,11 +28,11 @@ public class Condominio {
     public Condominio() {
     }
 
-    public Condominio(int id, String nome, String cep, int numero, String endereco) {
+    public Condominio(int id, String nomeCondominio, String cep, int numeroCondominio, String endereco) {
         this.id = id;
-        this.nome = nome;
+        this.nomeCondominio = nomeCondominio;
         this.cep = cep;
-        this.numero = numero;
+        this.numeroCondominio = numeroCondominio;
         this.endereco = endereco;
     }
 
@@ -45,12 +44,12 @@ public class Condominio {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getNomeCondominio() {
+        return nomeCondominio;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNomeCondominio(String nomeCondominio) {
+        this.nomeCondominio = nomeCondominio;
     }
 
     public String getEndereco() {
@@ -69,11 +68,22 @@ public class Condominio {
         this.cep = cep;
     }
 
-    public int getNumero() {
-        return numero;
+    public int getNumeroCondominio() {
+        return numeroCondominio;
     }
 
-    public void setNumero(int numero) {
-        this.numero = numero;
+    public void setNumeroCondominio(int numeroCondominio) {
+        this.numeroCondominio = numeroCondominio;
+    }
+
+    @Override
+    public String toString() {
+        return "Condominio{" +
+                "id=" + id +
+                ", nomeCondominio='" + nomeCondominio + '\'' +
+                ", cep='" + cep + '\'' +
+                ", numeroCondominio=" + numeroCondominio +
+                ", endereco='" + endereco + '\'' +
+                '}';
     }
 }
